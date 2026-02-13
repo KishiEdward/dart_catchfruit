@@ -21,11 +21,12 @@ class GameScreen extends StatefulWidget {
 }
 
 class _GameScreenState extends State<GameScreen> {
-  final ValueNotifier<int> score = ValueNotifier(1);
   @override
   void initState() {
     super.initState();
   }
+
+  final ValueNotifier<int> score = ValueNotifier(0);
 
   @override
   Widget build(BuildContext context) {
@@ -35,7 +36,7 @@ class _GameScreenState extends State<GameScreen> {
           Expanded(
             child: Stack(
               children: [
-                Positioned(
+                Positioned( //score display
                   top: 50,
                   left: 50,
                   child: Container(
@@ -59,7 +60,7 @@ class _GameScreenState extends State<GameScreen> {
                     ),
                   ),
                 ),
-                Positioned(
+                Positioned( //icon buttons
                   top: 50,
                   right: 20,
                   child: Row(
