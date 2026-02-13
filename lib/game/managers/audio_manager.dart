@@ -1,4 +1,4 @@
-import 'package:flame_audio/flame_audio.dart'; // Pastikan import ini ada di atas ya!
+import 'package:flame_audio/flame_audio.dart';
 
 class AudioManager {
   // Singleton pattern
@@ -20,12 +20,10 @@ class AudioManager {
   /// Initialize audio system - preload all audio files
   Future<void> initialize() async {
     try {
-      // Preload all sound effects
+      // PRELOAD HANYA FILE YANG KAMU MILIKI
       await FlameAudio.audioCache.loadAll([
-        'music/background_music.mp3',
-        'sfx/collect.mp3',
-        'sfx/explosion.mp3',
-        'sfx/jump.mp3',
+        'music/background_music.mp3', // Asumsi kamu masih punya file BGM ini. Jika tidak ada, hapus atau beri comment (//) baris ini agar tidak error.
+        'sfx/fahhh.mp3', // <-- File SFX kamu yang baru
       ]);
       print('Audio initialized successfully');
     } catch (e) {

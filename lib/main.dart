@@ -1,8 +1,11 @@
 import 'package:flame/game.dart';
 import 'package:flutter/material.dart';
 import 'package:fruit_catch/game/fruit_catch.dart';
+import 'package:fruit_catch/game/managers/audio_manager.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await AudioManager().initialize();
   runApp(const MyApp());
 }
 
@@ -74,15 +77,15 @@ class _GameScreenState extends State<GameScreen> {
                     children: [
                       IconButton(
                         icon: const Icon(Icons.pause),
-                        onPressed: () {},
+                        onPressed: () {AudioManager().toggleSfx();},
                       ),
                       IconButton(
                         icon: const Icon(Icons.music_note),
-                        onPressed: () {},
+                        onPressed: () {AudioManager().toggleSfx();},
                       ),
                       IconButton(
                         icon: const Icon(Icons.volume_up),
-                        onPressed: () {},
+                        onPressed: () {AudioManager().toggleSfx();},
                       ),
                     ],
                   ),
