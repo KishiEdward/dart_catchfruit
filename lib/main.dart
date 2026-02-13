@@ -82,6 +82,15 @@ class _GameScreenState extends State<GameScreen> {
               ],
             ),
           ),
+          Padding(
+            padding: const EdgeInsets.all(16),
+            child: ElevatedButton(
+              onPressed: () {
+                score.value++;
+              },
+              child: const Text("Tambah Score"),
+            ),
+          ),
         ],
       ),
     );
