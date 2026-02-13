@@ -26,7 +26,7 @@ class _GameScreenState extends State<GameScreen> {
   void initState() {
     super.initState();
   }
-  
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -50,7 +50,21 @@ class _GameScreenState extends State<GameScreen> {
                 ),
               ),
             ),
-          )
+          ),
+          Positioned(
+            bottom: 50,
+            right: 20,
+            child: Row(
+              children: [
+                IconButton(icon: const Icon(Icons.pause), onPressed: () {}),
+                IconButton(
+                  icon: const Icon(Icons.music_note),
+                  onPressed: () {},
+                ),
+                IconButton(icon: const Icon(Icons.volume_up), onPressed: () {}),
+              ],
+            ),
+          ),
         ],
       ),
     );
