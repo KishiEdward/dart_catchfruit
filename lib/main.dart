@@ -77,15 +77,21 @@ class _GameScreenState extends State<GameScreen> {
                     children: [
                       IconButton(
                         icon: const Icon(Icons.pause),
-                        onPressed: () {AudioManager().toggleSfx();},
+                        onPressed: () {
+                          AudioManager().toggleSfx();
+                        },
                       ),
                       IconButton(
                         icon: const Icon(Icons.music_note),
-                        onPressed: () {AudioManager().toggleSfx();},
+                        onPressed: () {
+                          AudioManager().toggleMusic();
+                        },
                       ),
                       IconButton(
                         icon: const Icon(Icons.volume_up),
-                        onPressed: () {AudioManager().toggleSfx();},
+                        onPressed: () {
+                          AudioManager().toggleSfx();
+                        },
                       ),
                     ],
                   ),

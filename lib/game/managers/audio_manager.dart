@@ -20,10 +20,9 @@ class AudioManager {
   /// Initialize audio system - preload all audio files
   Future<void> initialize() async {
     try {
-      // PRELOAD HANYA FILE YANG KAMU MILIKI
       await FlameAudio.audioCache.loadAll([
-        'music/background_music.mp3', // Asumsi kamu masih punya file BGM ini. Jika tidak ada, hapus atau beri comment (//) baris ini agar tidak error.
-        'sfx/fahhh.mp3', // <-- File SFX kamu yang baru
+        'music/bg-music.mp3',
+        'sfx/fahhh.mp3',
       ]);
       print('Audio initialized successfully');
     } catch (e) {
@@ -35,7 +34,7 @@ class AudioManager {
   void playBackgroundMusic() {
     if (_isMusicEnabled) {
       try {
-        FlameAudio.bgm.play('music/background_music.mp3', volume: _musicVolume);
+        FlameAudio.bgm.play('music/bg-music.mp3', volume: _musicVolume);
       } catch (e) {
         print('Error playing background music: $e');
       }
