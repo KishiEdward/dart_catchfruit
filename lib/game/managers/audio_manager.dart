@@ -17,7 +17,7 @@ class AudioManager {
   double get musicVolume => _musicVolume;
   double get sfxVolume => _sfxVolume;
 
-  /// Initialize audio system - preload all audio files
+  /// Initialize audio system
   Future<void> initialize() async {
     try {
       await FlameAudio.audioCache.loadAll([

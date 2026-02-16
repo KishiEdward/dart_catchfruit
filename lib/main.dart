@@ -33,6 +33,12 @@ class _GameScreenState extends State<GameScreen> {
     game = FruitCatch();
   }
 
+  @override
+  void dispose() {
+    game.onRemove();
+    super.dispose();
+  }
+
   final ValueNotifier<int> score = ValueNotifier(0);
 
   @override
@@ -55,7 +61,7 @@ class _GameScreenState extends State<GameScreen> {
                       borderRadius: BorderRadius.circular(10),
                     ),
                     child: ValueListenableBuilder<int>(
-                      valueListenable: score,
+                      valueListenable: game.scoreNotifier,
                       builder: (context, value, child) {
                         return Text(
                           'Score: $value',
@@ -75,12 +81,12 @@ class _GameScreenState extends State<GameScreen> {
                   right: 20,
                   child: Row(
                     children: [
-                      IconButton(
-                        icon: const Icon(Icons.pause),
-                        onPressed: () {
-                          AudioManager().toggleSfx();
-                        },
-                      ),
+                      // IconButton(
+                      //   icon: const Icon(Icons.pause),
+                      //   onPressed: () {
+                      //     AudioManager().playSfx('pause.mp3');
+                      //   },
+                      // ),
                       IconButton(
                         icon: const Icon(Icons.music_note),
                         onPressed: () {
@@ -91,6 +97,7 @@ class _GameScreenState extends State<GameScreen> {
                         icon: const Icon(Icons.volume_up),
                         onPressed: () {
                           AudioManager().toggleSfx();
+                          AudioManager().playSfx('fahhh.mp3');
                         },
                       ),
                     ],
