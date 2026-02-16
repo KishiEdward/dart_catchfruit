@@ -61,7 +61,7 @@ class _GameScreenState extends State<GameScreen> {
                       borderRadius: BorderRadius.circular(10),
                     ),
                     child: ValueListenableBuilder<int>(
-                      valueListenable: game.scoreNotifier,
+                      valueListenable: score,
                       builder: (context, value, child) {
                         return Text(
                           'Score: $value',
@@ -111,6 +111,7 @@ class _GameScreenState extends State<GameScreen> {
             child: ElevatedButton(
               onPressed: () {
                 score.value++;
+                AudioManager().playSfx('fahhh.mp3');
               },
               child: const Text("Tambah Score"),
             ),
