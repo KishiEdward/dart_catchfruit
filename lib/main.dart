@@ -81,12 +81,12 @@ class _GameScreenState extends State<GameScreen> {
                   right: 20,
                   child: Row(
                     children: [
-                      // IconButton(
-                      //   icon: const Icon(Icons.pause),
-                      //   onPressed: () {
-                      //     AudioManager().playSfx('pause.mp3');
-                      //   },
-                      // ),
+                      IconButton(
+                        icon: const Icon(Icons.pause),
+                        onPressed: () {
+                          AudioManager().playSfx('pause.mp3');
+                        },
+                      ),
                       IconButton(
                         icon: const Icon(Icons.music_note),
                         onPressed: () {
