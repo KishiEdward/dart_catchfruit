@@ -84,7 +84,6 @@ class _GameScreenState extends State<GameScreen> {
                       IconButton(
                         icon: const Icon(Icons.pause),
                         onPressed: () {
-                          AudioManager().playSfx('game-over.wav');
                         },
                       ),
                       IconButton(
