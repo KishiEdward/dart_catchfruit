@@ -56,15 +56,18 @@ class FruitCatch extends FlameGame with PanDetector, HasCollisionDetection {
   @override
   void onPanUpdate(DragUpdateInfo info) {
     basket.position.x += info.delta.global.x;
-    basket.position.x = basket.position.x.clamp(basket.size.x/2, size.x - basket.size.x/2);
+    basket.position.x = basket.position.x.clamp(
+      basket.size.x / 2,
+      size.x - basket.size.x / 2,
+    );
   }
 
   void incrementScore() {
     score++;
-    AudioManager().playSfx('pause.mp3');
+    AudioManager().playSfx('collect.mp3');
   }
 
-  void gameOver(){
+  void gameOver() {
     AudioManager().stopBackgroundMusic();
     pauseEngine();
   }

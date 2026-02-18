@@ -39,8 +39,6 @@ class _GameScreenState extends State<GameScreen> {
     super.dispose();
   }
 
-  final ValueNotifier<int> score = ValueNotifier(0);
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -61,7 +59,7 @@ class _GameScreenState extends State<GameScreen> {
                       borderRadius: BorderRadius.circular(10),
                     ),
                     child: ValueListenableBuilder<int>(
-                      valueListenable: score,
+                      valueListenable: game.scoreNotifier,
                       builder: (context, value, child) {
                         return Text(
                           'Score: $value',
