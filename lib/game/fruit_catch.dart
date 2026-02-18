@@ -1,7 +1,7 @@
-import 'dart:math' ;
+import 'dart:math';
 import 'package:flame/camera.dart';
 import 'package:flame/components.dart';
-import 'package:flame/events.dart' ;
+import 'package:flame/events.dart';
 import 'package:flame/game.dart';
 import 'package:flutter/material.dart';
 import 'components/basket.dart';
@@ -14,12 +14,18 @@ class FruitCatch extends FlameGame with PanDetector, HasCollisionDetection {
   final Random random = Random();
   double fruitSpawnTimer = 0.0;
   final double fruitSpawnInterval = 1.5;
-  
-  @override
-  Color backgroundColor() => const Color(0xFF87CEEB);
 
   final ValueNotifier<int> scoreNotifier = ValueNotifier<int>(0);
+  int _score = 0;
 
+  int get score => _score;
+  set score(int value) {
+    _score = value;
+    scoreNotifier.value = value;
+  }
+
+  @override
+  Color backgroundColor() => const Color(0xFF87CEEB);
   void incrementScore() {
     scoreNotifier.value++;
   }
@@ -27,6 +33,10 @@ class FruitCatch extends FlameGame with PanDetector, HasCollisionDetection {
   @override
   Future<void> onLoad() async {
     await super.onLoad();
+    camera.viewport = FixedResolutionViewport(resolution: Vector2(400, 800));
+
+    basket = Basket();
+    await add(basket);
     AudioManager().playBackgroundMusic();
   }
 }
