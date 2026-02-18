@@ -26,9 +26,6 @@ class FruitCatch extends FlameGame with PanDetector, HasCollisionDetection {
 
   @override
   Color backgroundColor() => const Color(0xFF87CEEB);
-  void incrementScore() {
-    scoreNotifier.value++;
-  }
 
   @override
   Future<void> onLoad() async {
@@ -38,5 +35,32 @@ class FruitCatch extends FlameGame with PanDetector, HasCollisionDetection {
     basket = Basket();
     await add(basket);
     AudioManager().playBackgroundMusic();
+  }
+
+  @override
+  void update(double dt) {
+    super.update(dt);
+    fruitSpawnTimer += dt;
+    if (fruitSpawnTimer >= fruitSpawnInterval) {
+      spawnFruit();
+      fruitSpawnTimer = 0.0;
+    }
+  }
+
+  void spawnFruit() {
+    final x = random.nextDouble() * size.x;
+    final fruit = Fruit(position: Vector2(x, -20));
+    add(fruit);
+  }
+
+  @override
+  void onPanUpdate(DragUpdateInfo info) {
+    basket.position.x += info.delta.global.x;
+    basket.position.x = basket.position.x.clamp(basket.size.x/2, size.x - basket.size.x/2);
+  }
+
+  void incrementScore() {
+    score++;
+    AudioManager().playSfx('pause.mp3');
   }
 }
