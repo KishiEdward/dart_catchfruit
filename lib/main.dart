@@ -82,6 +82,13 @@ class _GameScreenState extends State<GameScreen> {
                       IconButton(
                         icon: const Icon(Icons.pause),
                         onPressed: () {
+                          if (game.paused) {
+                            game.resumeEngine();
+                            AudioManager().resumeBackgroundMusic();
+                          } else {
+                            game.pauseEngine();
+                            AudioManager().pauseBackgroundMusic();
+                          }
                         },
                       ),
                       IconButton(
