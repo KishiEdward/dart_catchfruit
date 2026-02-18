@@ -107,8 +107,7 @@ class _GameScreenState extends State<GameScreen> {
             padding: const EdgeInsets.all(16),
             child: ElevatedButton(
               onPressed: () {
-                score.value++;
-                AudioManager().playSfx('fahhh.mp3');
+                game.incrementScore();
               },
               child: const Text("Tambah Score"),
             ),
