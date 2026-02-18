@@ -1,6 +1,12 @@
+import 'dart:math' ;
+import 'package:flame/camera.dart';
+import 'package:flame/components.dart';
+import 'package:flame/events.dart' ;
 import 'package:flame/game.dart';
 import 'package:flutter/material.dart';
-import 'package:fruit_catch/game/managers/audio_manager.dart';
+import 'components/basket.dart';
+import 'components/fruit.dart';
+import 'managers/audio_manager.dart';
 
 class FruitCatch extends FlameGame {
   @override
