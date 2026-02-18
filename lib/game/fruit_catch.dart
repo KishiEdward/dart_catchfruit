@@ -8,7 +8,13 @@ import 'components/basket.dart';
 import 'components/fruit.dart';
 import 'managers/audio_manager.dart';
 
-class FruitCatch extends FlameGame {
+class FruitCatch extends FlameGame with PanDetector, HasCollisionDetection {
+  late Basket basket;
+  late TextComponent scoreText;
+  final Random random = Random();
+  double fruitSpawnTimer = 0.0;
+  final double fruitSpawnInterval = 1.5;
+  
   @override
   Color backgroundColor() => const Color(0xFF87CEEB);
 
